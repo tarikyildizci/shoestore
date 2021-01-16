@@ -6,8 +6,7 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import Slide from "@material-ui/core/Slide"
-import React, { useState, useContext } from "react"
-import StateContext from "../context/GlobalProvider"
+import React, { useState } from "react"
 
 const Checkout = ({ cartItems, setCartItems }) => {
   const [dialogOpen, setDialogOpen] = useState(false)
