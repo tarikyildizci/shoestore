@@ -1,42 +1,40 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import Grid from "@material-ui/core/Grid"
+import AppBar from "@material-ui/core/AppBar"
+import Typography from "@material-ui/core/Typography"
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart"
+
 import React from "react"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+const Header = ({ siteTitle }) => {
+  return (
+    <AppBar
+      style={{ minHeight: "100px", marginBottom: "10px" }}
+      position="static"
+      color="primary"
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+      <Grid
+        style={{ marginTop: "10px" }}
+        container
+        justify="space-between"
+        alignItems="center"
+      >
+        <Grid item xs={1}></Grid>
+        <Grid item xs={7} md={4}>
+          <Link style={{ textDecoration: "none", color: "white" }} to="/">
+            <Typography variant="h3">{siteTitle}</Typography>
+          </Link>
+        </Grid>
+        <Grid item xs={2} md={5}></Grid>
+        <Grid item xs={1}>
+          <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
+            <ShoppingCartIcon fontSize="large" />
+          </Link>
+        </Grid>
+        <Grid item xs={1}></Grid>
+      </Grid>
+    </AppBar>
+  )
 }
 
 export default Header
