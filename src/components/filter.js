@@ -99,7 +99,7 @@ const Filter = ({ setDisplay }) => {
               <MenuItem value={"nuke"}>Nuke</MenuItem>
               <MenuItem value={"aytmz"}>Aytmz</MenuItem>
               <MenuItem value={"adiclas"}>Adiclas</MenuItem>
-              <MenuItem value={"adiclas"}>Pusher</MenuItem>
+              <MenuItem value={"pusher"}>Pusher</MenuItem>
             </Select>
           </FormControl>
         </Grid>
