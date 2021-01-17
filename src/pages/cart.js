@@ -10,10 +10,13 @@ import { StateContext } from "../context/GlobalProvider"
 const Cart = () => {
   const { cartItems, setCartItems } = useContext(StateContext)
   const [display, setDisplay] = useState([])
+  const [cartTotal, setCartTotal] = useState(0)
 
   const CardMaker = () => {
+    setCartTotal(0)
     let itemsToDisplay = []
     cartItems.forEach(item => {
+      setCartTotal(prevCartTotal => prevCartTotal + parseInt(item.price))
       itemsToDisplay.push(
         <ShoeCard key={item.id} data={item} buttonDelete={true} />
       )
@@ -30,7 +33,11 @@ const Cart = () => {
     <Layout>
       <SEO title="Cart" />
       <Grid container spacing={2}>
-        <Checkout setCartItems={setCartItems} cartItems={cartItems} />
+        <Checkout
+          setCartItems={setCartItems}
+          cartItems={cartItems}
+          cartTotal={cartTotal}
+        />
         {display && display[0] ? (
           display
         ) : (
